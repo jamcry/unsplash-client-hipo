@@ -1,0 +1,49 @@
+body {
+  background-color: #050417;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  height: 100%;
+  background: #050417;
+  color: #fff;
+}
+
+.home form {
+  width: fit-content;
+}
+
+.home form * {
+  /* Put a distance between form elements */
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  border: none;
+}
+
+.home form input {
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.home form select {
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+}
+
+.home form button {
+  background: rgba(42, 43, 141, .67);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  text-transform: uppercase;
+  padding: 1rem 4rem;
+}
+
+.home form button:hover {
+  cursor: pointer;
+  background: rgba(42, 43, 141, 1);
+}

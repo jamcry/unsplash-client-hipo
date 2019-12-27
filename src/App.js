@@ -6,7 +6,7 @@ import Results from './pages/Results';
 function App() {
   return (
     <div className="App">
-      <Results />
+      <Home />
     </div>
   );
 }
