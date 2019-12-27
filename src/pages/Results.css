@@ -1,3 +1,14 @@
+body {
+  display: block;
+  background: #fff;
+  color: #050417;
+  align-items: flex-start;
+}
+
+.header {
+  height: fit-content;
+}
+
 .results .content {
   padding-top: 5rem;
 }

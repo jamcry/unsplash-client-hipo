@@ -1,0 +1,27 @@
+.results-grid .gallery-grid {
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1rem;
+  column-count: 3;
+  column-gap: 1rem;  
+
+  /* Give space for sides */
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.gallery-grid img {
+  width:  100% !important;
+  display: inline-block;
+  margin: 0 0 1em;
+  height: auto !important;
+}
+
+@media screen and (max-width: 476px) {
+  .results-grid .gallery-grid {
+    /* Switch to one-column view for small devices */
+    column-count: 1;
+    column-gap: .5rem;  
+  }
+}
