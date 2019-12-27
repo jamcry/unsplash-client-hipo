@@ -1,20 +1,34 @@
 import React, {Component} from "react";
 import "./Home.css";
+import {Redirect} from "react-router-dom";
 
 export default class Home extends Component {
   state = {
     query: "",
-    collection: ""
+    collection: "",
+    searchSubmitted: false
   };
 
   handleChange = e => {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({searchSubmitted: true})
+  }
+
   render() {
+    // Redirect to results page if form is submitted
+    if(this.state.searchSubmitted) {
+      const {collection, query} = this.state;
+      const resultsPath = "/results/" + query + "/" + collection;
+      return (<Redirect to={resultsPath} />);
+    }
+    
     return (
-      <div className="home">
-        <form>
+      <div className="home container">
+        <form onSubmit={this.handleSubmit}>
           <h1>imagesearch</h1>
           <input
             type="text"

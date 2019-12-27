@@ -6,3 +6,14 @@
     color: white;
     display: block;
 }
+
+.sticky-header .brand {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.sticky-header .brand a {
+    color: white;
+    text-decoration: none;
+}

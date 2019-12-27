@@ -1,12 +1,12 @@
 body {
-  background-color: #050417;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;  
 }
 
 .home {
-  height: 100%;
+  display: flex;
+  background-color: #050417 !important;
+  justify-content: center;
+  align-items: center;  
   background: #050417;
   color: #fff;
 }

@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
+import {Link} from "react-router-dom";
 import "./StickyHeader.css";
 
 export default class StickyHeader extends Component {
   render() {
     return (
       <header className="sticky-header">
-        <h1>imagesearch</h1>
+        <div className="brand">
+          <Link to="/">
+            imagesearch
+          </Link>
+        </div>
       </header>
     )
   }

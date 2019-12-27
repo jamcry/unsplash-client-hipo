@@ -1,8 +1,7 @@
-body {
-  display: block;
-  background: #fff;
-  color: #050417;
-  align-items: flex-start;
+.results {
+  background: #fff !important;
+  color: #050417 !important;
+  align-items: flex-start !important;
 }
 
 .header {
@@ -10,5 +9,7 @@ body {
 }
 
 .results .content {
+  margin: auto;
   padding-top: 5rem;
+  max-width: 1024px;
 }
