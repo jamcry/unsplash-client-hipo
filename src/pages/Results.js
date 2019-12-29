@@ -1,13 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import GridGallery from "../components/GridGallery";
 import StickyHeader from "../components/StickyHeader";
 import "./Results.css";
-import {useParams} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-const Results = () => {
+class Results extends Component {
+  render() {
     // Get the search parameters from the router
-    const {collection, query} = useParams();
-
+    const { collection, query } = this.props.match.params;
     return (
       <div className="results container">
         <div className="header">
@@ -22,5 +22,6 @@ const Results = () => {
       </div>
     )
   }
+}
 
-export default Results; 
+export default withRouter(Results); 
