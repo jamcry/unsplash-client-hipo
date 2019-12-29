@@ -27,11 +27,11 @@ const PhotoModal = (props) => {
             </div>
           </div>
           <div className="img-action">
-            <a href={imgData.links.download} className="btn-download">Download</a>
+            <a href={imgData.links.download} className="btn-download"><i className="far fa-caret-square-down" /> Download</a>
           </div>
         </div>
         <div className="map-view">
-          {imgData.location ? "Map for location: " + imgData.location : "No location data!"}
+          <i className="fas fa-map-marker-alt" />{imgData.location ? "Map for location: " + imgData.location : "No location data!"}
         </div>
       </div>
     </div>
