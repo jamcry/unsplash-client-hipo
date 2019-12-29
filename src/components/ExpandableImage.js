@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PhotoModal from './PhotoModal'
+import "./ExpandableImage.css";
 
 export default class ExpandableImage extends Component {
   state = {
@@ -23,15 +24,14 @@ export default class ExpandableImage extends Component {
   }
 
   render() {
+    const src = this.props.imgData.urls.small;
+    const alt = this.props.imgData.alt_description;
     return (
-      <>
-        {this.state.expanded && <PhotoModal closeModal={this.toggleVisibility} data={{ url: this.props.src }} />}
-        <img
-          src={this.props.src}
-          onClick={this.toggleVisibility}
-          alt={this.props.alt}
-        />
-      </>
+      <div className="expandable-img-container">
+        {this.state.expanded && <PhotoModal closeModal={this.toggleVisibility} imgData={this.props.imgData} />}
+        <div className="img-overlay" onClick={this.toggleVisibility}></div>
+        <img className="thumbnail" src={src} alt={alt} />
+      </div>
     )
   }
 }

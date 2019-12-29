@@ -21,7 +21,7 @@
   min-width: 50%;
   max-width: 960px;
   max-height: 95%;
-  overflow: auto;
+  overflow-y: auto;
   border-radius: 10px;
   line-height: 1.2rem;
 }
@@ -40,18 +40,19 @@
 .image-container img.img-extended {
   height: 100% !important;
   width: auto !important;
+  max-width: 100% !important;
 }
 
 /* User Profile Card */
 .user-profile {
   display: flex;
   align-items: center;
+  text-align: left;
 }
 
 .user-profile a {
   text-decoration: none;
   color: inherit;
-  text-align: left;
 }
 
 .user-profile .img-profile {
