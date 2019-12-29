@@ -35,14 +35,17 @@ export default class SearchForm extends Component {
           value={this.state.query}
           onChange={this.handleChange}
           required />
-        <select name="collection" value={this.state.collection} onChange={this.handleChange}>
-          <option value="" disabled hidden>Collections</option>
-          <option key="featured">Featured</option>
-          <option key="wallpapers">Wallpapers</option>
-          <option key="nature">Nature</option>
-          <option key="texturesAndPatterns">Textures & Patterns</option>
-          <option key="architecture">Architecture</option>
-        </select>
+        <div className="select-container">
+          <select name="collection" value={this.state.collection} onChange={this.handleChange}>
+            <option value="" disabled hidden>Collections</option>
+            <option key="featured">Featured</option>
+            <option key="wallpapers">Wallpapers</option>
+            <option key="nature">Nature</option>
+            <option key="texturesAndPatterns">Textures & Patterns</option>
+            <option key="architecture">Architecture</option>
+          </select>
+          <div className="stacked-select"></div>
+        </div>
         <button>Search</button>
       </form>
     )
