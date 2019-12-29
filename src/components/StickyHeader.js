@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./StickyHeader.css";
+import SearchForm from './SearchForm';
 
 export default class StickyHeader extends Component {
   render() {
@@ -10,6 +11,9 @@ export default class StickyHeader extends Component {
           <Link to="/">
             imagesearch
           </Link>
+        </div>
+        <div className="header-form">
+          {/*<SearchForm />*/}
         </div>
       </header>
     )
