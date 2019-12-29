@@ -86,25 +86,27 @@ const PhotoModal = (props) => {
 
   return (
     <div className="modal-container" onClick={handleClick}>
-      <div className="content">
+      <div className="modal-content">
         <div className="description">{imgData.description}</div>
-        <img className="img-extended" src={imgData.urls.full} alt={imgData.alt_description} />
+        <div className="image-container">
+          <img className="img-extended" src="https://picsum.photos/300/400?random=12" alt={imgData.alt_description} />
+        </div>
         <div className="row">
           <div className="user-profile">
-              <img className="img-profile" src={profileUrl} alt="User's portrait" />
-              <div className="name">
-                <div className="full-name">{imgData.user.first_name + " " + imgData.user.last_name}</div>
-                <a href={imgData.user.links.html}>
-                  <div className="username">{"@" + imgData.user.username}</div>
-                </a>
-              </div>
+            <img className="img-profile" src={profileUrl} alt="User's portrait" />
+            <div className="name">
+              <div className="full-name">{imgData.user.first_name + " " + imgData.user.last_name}</div>
+              <a href={imgData.user.links.html}>
+                <div className="username">{"@" + imgData.user.username}</div>
+              </a>
+            </div>
           </div>
           <div className="img-action">
             <a href={imgData.links.download} className="btn-download">Download</a>
           </div>
         </div>
         <div className="map-view">
-          { imgData.location ? "Map for location: " + imgData.location : "No location data!" }
+          {imgData.location ? "Map for location: " + imgData.location : "No location data!"}
         </div>
       </div>
     </div>

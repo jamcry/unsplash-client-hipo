@@ -12,7 +12,8 @@
     background-color: rgba(5, 4, 23, .8);
 }
 
-.modal-container .content {
+.modal-container .modal-content {
+    padding: .3rem;
     z-index: 9999;
     position: absolute;
     display: flex;
@@ -22,8 +23,7 @@
     color: black;
     width: 452px;
     min-width: 50%;
-    height: 80%;
-    border-radius: 10px; 
+    border-radius: 10px;
     line-height: 1.2rem;
 }
 
@@ -33,6 +33,17 @@
   margin-bottom: 1rem;
 }
 
+/* Extended Image */
+.image-container {
+  width: 100%;
+}
+
+.image-container img.img-extended {
+  width: auto !important;
+  height: auto !important;
+}
+
+/* User Profile Card */
 .user-profile {
   display: flex;
   align-items: center;
