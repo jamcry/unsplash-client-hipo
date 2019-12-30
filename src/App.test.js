@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders imagesearch header', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/imagesearch/i);
+  const linkElement = getByText(/image/i);
   expect(linkElement).toBeInTheDocument();
 });
