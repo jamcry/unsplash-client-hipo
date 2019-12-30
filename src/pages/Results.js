@@ -3,24 +3,35 @@ import GridGallery from "../components/GridGallery";
 import StickyHeader from "../components/StickyHeader";
 import "./Results.css";
 import { withRouter } from "react-router-dom";
-import mockResponse from "../mockResponse";
 
 class Results extends Component {
   state = {
     query: "",
     collection: "",
     isLoading: true,
-    data: null
+    data: null,
+    error: null,
+    currentPage: 1
   }
 
   getResults = () => {
-    // Mockup for api request, that completes in 1 second
-    setTimeout(() => {
+    const UNSPLASH_ACCESS_KEY = process.env.REACT_APP_UNSPLASH_ACCESS_KEY || "";
+    const {query, collection, currentPage} = this.state;
+    const url = `https://api.unsplash.com/search/photos?query=${query}&collections=${collection}&client_id=${UNSPLASH_ACCESS_KEY}&page=${currentPage}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
       this.setState({
         isLoading: false,
-        data: mockResponse
-      });
-    }, 1000)
+        data
+      })
+    })
+    .catch(err => {
+      console.log(err);
+      this.setState({
+        error: err
+      })
+    })
   }
 
   componentDidMount = () => {
@@ -40,6 +51,20 @@ class Results extends Component {
     }
   }
 
+  // Increments the current page number and fetches images for new page number
+  incrementPageNumber = () => {
+    this.setState(prevState => ({
+      currentPage: prevState.currentPage + 1
+    }),this.getResults);
+  }
+
+  // Decrements the current page number and fetches images for new page number
+  decrementPageNumber = () => {
+    this.setState(prevState => ({
+      currentPage: prevState.currentPage - 1
+    }), this.getResults);
+  }
+
   render() {
     // Get the search parameters from the router
     const { collection, query } = this.props.match.params;
@@ -48,14 +73,37 @@ class Results extends Component {
         <div className="header">
           {/* Key prop ensures re-render of StickyHeader therefore SearchForm 
             in case of route change */}
-          <StickyHeader key={query} />
+          <StickyHeader key={query+"_"+collection} />
         </div>
         <div className="content">
-          <h2>Search Parameters</h2>
-          <p><b>Collection:</b> {collection || "No collection selected"}</p>
-          <p><b>Query:</b> {query}</p>
+          <h2>Search Results for "{this.state.query}"</h2>
+          <p><b>Collection ID:</b> {collection || "No collection selected"}</p>
+
           {this.state.isLoading && <h1>Loading...</h1>}
-          {this.state.data && <GridGallery imageList={this.state.data.results} />}
+
+          {this.state.error && <h1>Problem fetching images! ({this.state.error.message})</h1>}
+
+          {this.state.data && 
+          <>
+            <GridGallery imageList={this.state.data.results} />
+            {
+              (parseInt(this.state.data.total_pages) > 0)
+              ?
+              <p>Page {this.state.currentPage} / {this.state.data.total_pages}</p>
+              :
+              <p>Sorry, no images found for your search!</p>
+            }
+            { 
+              parseInt(this.state.currentPage) > 1
+              &&
+              <button style={{float:"left"}} onClick={this.decrementPageNumber}>Prev Page</button>
+            }
+            { 
+              parseInt(this.state.currentPage) < parseInt(this.state.data.total_pages)
+              &&
+              <button style={{float:"right"}} onClick={this.incrementPageNumber}>Next Page</button>
+            }
+          </>}
         </div>
       </div>
     )

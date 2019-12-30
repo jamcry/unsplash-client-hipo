@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/results/:query/:collection?">
+          <Route path="/results/:query/:collection?/:page?">
             <Results />
           </Route>
         </Switch>

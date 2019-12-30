@@ -37,12 +37,13 @@ class SearchForm extends Component {
             required />
           <div className="select-container">
             <select name="collection" value={this.state.collection} onChange={this.handleChange}>
-              <option value="" disabled hidden>Collections</option>
+              <option value="" disabled hidden>All Collections</option>
               <option key="featured">Featured</option>
-              <option key="wallpapers">Wallpapers</option>
-              <option key="nature">Nature</option>
-              <option key="texturesAndPatterns">Textures & Patterns</option>
-              <option key="architecture">Architecture</option>
+              <option value="1065976" key="wallpapers">Wallpapers</option>
+              <option value="3330448" key="nature">Nature</option>
+              <option value="3330445" key="texturesAndPatterns">Textures & Patterns</option>
+              <option value="3348849" key="architecture">Architecture</option>
+              <option value="3356584" key="experimental">Experimental</option>
             </select>
             <div className="stacked-select"></div>
           </div>
