@@ -1,7 +1,7 @@
 .expandable-img-container {
   position: relative;
-  height: 100%;
   width: 100%;
+  min-height: 100%;
 }
 
 .expandable-img-container img.thumbnail {
