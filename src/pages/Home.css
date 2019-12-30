@@ -16,3 +16,19 @@ body {
   max-width: 400px;
   margin: 1rem;
 }
+
+.home-content svg {
+  margin-bottom: 14px;
+}
+
+.home-content .brand {
+  display: block;
+  font-size: 36px;
+  line-height: 49px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.brand .bold {
+  font-weight: bold;
+}

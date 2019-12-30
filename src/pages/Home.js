@@ -15,7 +15,7 @@ export default class Home extends Component {
       <div className="home container">
         <div className="home-content">
           <AppLogo />
-          <h1>imagesearch</h1>
+          <span className="brand"><span className="bold">image</span> search</span>
           <SearchForm className="test" />
         </div>
       </div>
