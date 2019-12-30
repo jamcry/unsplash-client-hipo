@@ -7,11 +7,13 @@ import mockResponse from "../mockResponse";
 
 class Results extends Component {
   state = {
+    query: "",
+    collection: "",
     isLoading: true,
     data: null
   }
 
-  componentDidMount = () => {
+  getResults = () => {
     // Mockup for api request, that completes in 1 second
     setTimeout(() => {
       this.setState({
@@ -21,13 +23,32 @@ class Results extends Component {
     }, 1000)
   }
 
+  componentDidMount = () => {
+    this.getResults();
+  }
+
+  componentDidUpdate = () => {
+    const {query, collection} = this.props.match.params;
+    // Check route parameter for changes
+    if(query !== this.state.query || collection !== this.state.collection) {
+      this.setState({
+        isLoading: true,
+        data: null,
+        query,
+        collection
+      }, this.getResults)
+    }
+  }
+
   render() {
     // Get the search parameters from the router
     const { collection, query } = this.props.match.params;
     return (
       <div className="results container">
         <div className="header">
-          <StickyHeader />
+          {/* Key prop ensures re-render of StickyHeader therefore SearchForm 
+            in case of route change */}
+          <StickyHeader key={query} />
         </div>
         <div className="content">
           <h2>Search Parameters</h2>

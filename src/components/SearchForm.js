@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Redirect } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import "./SearchForm.css";
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
   state = {
     query: "",
     collection: "",
-    searchSubmitted: false
+    redirectPath: null
   }
 
   handleChange = e => {
@@ -15,49 +15,42 @@ export default class SearchForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({ searchSubmitted: true })
+    // Reset form values and set redirectPath to redirect to results page
+    this.setState(prevState => ({
+      query: "",
+      collection: "",
+      redirectPath: "/results/" + prevState.query + "/" + prevState.collection,
+    }))
   }
 
-  // Resets the state to initial values
-  resetFormState = () => {
-    this.setState({
-      query: "",
-      collection: "", 
-      searchSubmitted: false
-    });
-  };
-
   render() {
-    // Redirect to results page if form is submitted
-    if (this.state.searchSubmitted) {
-      const { collection, query } = this.state;
-      const resultsPath = "/results/" + query + "/" + collection;
-      this.resetFormState();
-      return (<Redirect to={resultsPath} />);
-    }
-
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="query"
-          placeholder="Query"
-          value={this.state.query}
-          onChange={this.handleChange}
-          required />
-        <div className="select-container">
-          <select name="collection" value={this.state.collection} onChange={this.handleChange}>
-            <option value="" disabled hidden>Collections</option>
-            <option key="featured">Featured</option>
-            <option key="wallpapers">Wallpapers</option>
-            <option key="nature">Nature</option>
-            <option key="texturesAndPatterns">Textures & Patterns</option>
-            <option key="architecture">Architecture</option>
-          </select>
-          <div className="stacked-select"></div>
-        </div>
-        <button>Search</button>
-      </form>
+      <>
+        {this.state.redirectPath && <Redirect to={this.state.redirectPath}/>}
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="query"
+            placeholder="Query"
+            value={this.state.query}
+            onChange={this.handleChange}
+            required />
+          <div className="select-container">
+            <select name="collection" value={this.state.collection} onChange={this.handleChange}>
+              <option value="" disabled hidden>Collections</option>
+              <option key="featured">Featured</option>
+              <option key="wallpapers">Wallpapers</option>
+              <option key="nature">Nature</option>
+              <option key="texturesAndPatterns">Textures & Patterns</option>
+              <option key="architecture">Architecture</option>
+            </select>
+            <div className="stacked-select"></div>
+          </div>
+          <button>Search</button>
+        </form>
+      </>
     )
   }
 }
+
+export default withRouter(SearchForm);
