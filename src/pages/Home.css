@@ -1,7 +1,3 @@
-body {
-  text-align: center;  
-}
-
 .home {
   display: flex;
   background-color: #050417 !important;
@@ -17,15 +13,36 @@ body {
   margin: 1rem;
 }
 
+/*
+  Home search form styles
+*/
+
+.home-content form * {
+  /* Put a distance between form elements */
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
 .home-content svg {
   margin-bottom: 14px;
 }
 
-.home-content .brand {
+.home-content button {
+  margin-top: 75px;
+}
+
+/*
+  Brand text style
+*/
+
+.brand {
   display: block;
   font-size: 36px;
   line-height: 49px;
   text-align: center;
+}
+
+.home-content .brand {
   margin-bottom: 50px;
 }
 

@@ -18,11 +18,21 @@ export default class SearchForm extends Component {
     this.setState({ searchSubmitted: true })
   }
 
+  // Resets the state to initial values
+  resetFormState = () => {
+    this.setState({
+      query: "",
+      collection: "", 
+      searchSubmitted: false
+    });
+  };
+
   render() {
     // Redirect to results page if form is submitted
     if (this.state.searchSubmitted) {
       const { collection, query } = this.state;
       const resultsPath = "/results/" + query + "/" + collection;
+      this.resetFormState();
       return (<Redirect to={resultsPath} />);
     }
 
