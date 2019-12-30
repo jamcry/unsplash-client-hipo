@@ -41,7 +41,11 @@ class PhotoModal extends Component {
     const { imgData } = this.props;
     return (
       <div className="modal-container" onClick={this.handleClick}>
-        <div className="modal-content">
+        <div className="modal-content-wrapper">
+          <div className="mobile-btn-close">
+            <i className="fa fa-times" />
+          </div>
+          <div className="modal-content">
           <div className="image-container">
             <img className="img-extended" src={imgData.urls.regular} alt={imgData.alt_description} />
           </div>
@@ -87,7 +91,8 @@ class PhotoModal extends Component {
               }
           </div>
         </div>
-      </div>
+        </div>
+     </div>
     )
   }
 }
