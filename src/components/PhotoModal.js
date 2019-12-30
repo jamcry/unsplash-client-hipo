@@ -31,8 +31,10 @@ class PhotoModal extends Component {
   }
 
   handleClick = e => {
+    console.log(e.target)
     // Verify that the outside of the content is clicked
-    if(e.target.className==="modal-container") {
+    if(e.target.className==="modal-container" || e.target.className==="mobile-btn-close") {
+      console.log("close")
       this.props.closeModal()
     }
   }
@@ -42,9 +44,9 @@ class PhotoModal extends Component {
     return (
       <div className="modal-container" onClick={this.handleClick}>
         <div className="modal-content-wrapper">
-          <div className="mobile-btn-close">
+          <button className="mobile-btn-close" onClick={this.handleClick}>
             <i className="fa fa-times" />
-          </div>
+          </button>
           <div className="modal-content">
           <div className="image-container">
             <img className="img-extended" src={imgData.urls.regular} alt={imgData.alt_description} />

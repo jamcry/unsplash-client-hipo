@@ -12,24 +12,24 @@ export default class ExpandableImage extends Component {
   // Re-activates the scrolling
   unlockScroll = () => document.body.style.overflow = "auto";
 
-  toggleVisibility = () => {
-    this.setState(prevState => {
-      // Toggle the state of scroll-lock
-      (prevState.expanded) ? this.unlockScroll() : this.lockScroll();
-      return {
-        // Toggle the state of modal visibility
-        expanded: !prevState.expanded
-      }
-    })
+  openModal = () => {
+    this.lockScroll();
+    this.setState({ expanded: true })
   }
+
+  closeModal = () => {
+    this.unlockScroll();
+    this.setState({ expanded: false })
+  }
+
 
   render() {
     const src = this.props.imgData.urls.small;
     const alt = this.props.imgData.alt_description;
     return (
       <div className="expandable-img-container">
-        {this.state.expanded && <PhotoModal closeModal={this.toggleVisibility} imgData={this.props.imgData} />}
-        <div className="img-overlay" onClick={this.toggleVisibility}></div>
+        {this.state.expanded && <PhotoModal closeModal={this.closeModal} imgData={this.props.imgData} />}
+        <div className="img-overlay" onClick={this.openModal}></div>
         <img className="thumbnail" src={src} alt={alt} />
       </div>
     )

@@ -33,12 +33,19 @@
 
 @media screen and (max-width: 476px) {
   .mobile-btn-close {
-    display: block;
+    display: flex;
+    border: none;
+    background: rgba(255, 255, 255, .75);
+    border-radius: 50%;
     z-index: 999;
     position: absolute;
     font-size: 1.5rem;
     top: .2rem;
     right: .2rem;
+  }
+  .mobile-btn-close i {
+    /* Prevent clicks on the icon */
+    pointer-events: none;
   }
 }
 
