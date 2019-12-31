@@ -16,6 +16,7 @@ class Results extends Component {
 
   getResults = () => {
     const UNSPLASH_ACCESS_KEY = process.env.REACT_APP_UNSPLASH_ACCESS_KEY || "";
+    if(!process.env.REACT_APP_UNSPLASH_ACCESS_KEY) console.warn("Couldn't get the API key from environment! Check your configuration.");
     const {query, collection, currentPage} = this.state;
     const url = `https://api.unsplash.com/search/photos?query=${query}&collections=${collection}&client_id=${UNSPLASH_ACCESS_KEY}&page=${currentPage}`;
     fetch(url)
@@ -85,7 +86,7 @@ class Results extends Component {
 
           {this.state.data && 
           <>
-            <GridGallery imageList={this.state.data.results} />
+            <GridGallery imageList={this.state.data.results || []} />
             {
               (parseInt(this.state.data.total_pages) > 0)
               ?
