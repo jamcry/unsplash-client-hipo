@@ -97,12 +97,16 @@ class Results extends Component {
             { 
               parseInt(this.state.currentPage) > 1
               &&
-              <button style={{float:"left"}} onClick={this.decrementPageNumber}>Prev Page</button>
+              <button className="btn-pagination" style={{float:"left"}} onClick={this.decrementPageNumber}>
+                <i className="fas fa-chevron-left" /> Prev Page
+              </button>
             }
             { 
               parseInt(this.state.currentPage) < parseInt(this.state.data.total_pages)
               &&
-              <button style={{float:"right"}} onClick={this.incrementPageNumber}>Next Page</button>
+              <button className="btn-pagination" style={{float:"right"}} onClick={this.incrementPageNumber}>
+                Next Page <i className="fas fa-chevron-right" />
+              </button>
             }
           </>}
         </div>
