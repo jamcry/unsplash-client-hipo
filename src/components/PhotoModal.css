@@ -19,7 +19,6 @@
   flex-direction: column;
   background: white;
   min-width: 50%;
-  max-width: 960px;
   max-height: 95%;
   overflow-y: auto;
   border-radius: 10px;

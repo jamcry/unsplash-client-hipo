@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "./PhotoModal.css";
+import { MapView } from './MapView';
 
 class PhotoModal extends Component {
   state = {
@@ -7,7 +8,6 @@ class PhotoModal extends Component {
   }
 
   getImageInfo = () => {
-    console.log("fetching info")
     const UNSPLASH_ACCESS_KEY = process.env.REACT_APP_UNSPLASH_ACCESS_KEY || "";
     const {imgData} = this.props;
     const url = `https://api.unsplash.com/photos/${imgData.id}?&client_id=${UNSPLASH_ACCESS_KEY}`;
@@ -31,10 +31,8 @@ class PhotoModal extends Component {
   }
 
   handleClick = e => {
-    console.log(e.target)
     // Verify that the outside of the content is clicked
     if(e.target.className==="modal-container" || e.target.className==="mobile-btn-close") {
-      console.log("close")
       this.props.closeModal()
     }
   }
@@ -66,6 +64,18 @@ class PhotoModal extends Component {
             </div>
           </div>
           <div className="map-info">
+            {
+              this.state.imageData.location && this.state.imageData.location.position.longitude &&
+              <>
+                <MapView
+                  googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
+                  loadingElement={<div style={{ height: `100%` }} />}
+                  containerElement={<div style={{ height: `260px`, borderRadius: '10px', padding: '1rem' }} />}
+                  mapElement={<div style={{ height: `100%`, borderRadius: '10px' }} />}
+                  position={this.state.imageData.location.position}
+                />
+              </>
+            }
             <div className="map-title">
               <i className="fas fa-map-marker-alt" />
               {this.state.imageData.location && this.state.imageData.location.title ? this.state.imageData.location.title : "No location data!"}
