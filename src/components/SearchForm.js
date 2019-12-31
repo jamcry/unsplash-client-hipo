@@ -28,13 +28,15 @@ class SearchForm extends Component {
       <>
         {this.state.redirectPath && <Redirect to={this.state.redirectPath}/>}
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="query"
-            placeholder="Query"
-            value={this.state.query}
-            onChange={this.handleChange}
-            required />
+          <div className="input-container">
+            <input
+              type="text"
+              name="query"
+              placeholder="Query"
+              value={this.state.query}
+              onChange={this.handleChange}
+              required />
+          </div>
           <div className="select-container">
             <select name="collection" value={this.state.collection} onChange={this.handleChange}>
               <option value="" disabled hidden>All Collections</option>

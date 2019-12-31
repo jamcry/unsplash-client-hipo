@@ -27,27 +27,61 @@
 
 form, form * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 .sticky-header-container form {
   display: flex;
-  flex-wrap: wrap;
+  flex-basis: 1128px;
+}
+
+/*
+  Mobile screen form styles
+*/
+
+@media screen and (max-width: 576px) {
+  .sticky-header-container form {
+    flex-wrap: wrap;
+  }
+  .sticky-header-container .select-container,
+  .sticky-header-container .input-container,
+  .sticky-header-container button {
+    margin: .5rem 0 !important;
+    height: 40px;
+  }
+  .sticky-header-container svg {
+    margin: 0 !important;
+  }
+  .sticky-header-container .logo-container {
+    
+    padding: 1rem;
+  }
+  .results .content {
+    margin-top: 15rem !important;
+  }
 }
 
 .sticky-header-container svg {
   margin-right: 86px;
 }
 
-.sticky-header-container select {
-  width: 400px;
+.sticky-header-container .select-container,
+.sticky-header-container .input-container {
+  flex: 1;
+  flex-basis: 400px;
 }
 
-.sticky-header-container input {
-  width: 400px;
+.sticky-header-container select {
+  /* select should fill the select-container width */
+  width: 100% !important;
+}
+
+.sticky-header-container .input-container {
   margin-right: 30px;
 }
 
 .sticky-header-container button {
+  flex: 1;
   flex-basis: 246px;
   margin-left: 52px;
 }
