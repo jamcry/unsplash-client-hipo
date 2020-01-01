@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhotoModal from './PhotoModal'
+import PhotoModal from './Modal/PhotoModal'
 import "./ExpandableImage.css";
 
 export default class ExpandableImage extends Component {
