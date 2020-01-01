@@ -23,5 +23,5 @@ This should run the app on [http://localhost:3000](http://localhost:3000). Then,
 
 ## Dependencies
 This project depends on:
-- [react-router-dom] (https://www.npmjs.com/package/react-router-dom) package for navigation between page components
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom) package for navigation between page components
 - [react-google-maps](https://github.com/tomchentw/react-google-maps) package for showing embedded maps
