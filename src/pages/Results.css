@@ -14,22 +14,3 @@
   padding: .5rem;
   max-width: 1024px;
 }
-
-.btn-pagination {
-  margin-bottom: 1rem;
-  border: 3px solid rgba(42, 43, 141, .67);
-  color: rgba(42, 43, 141, .67);
-  border-radius: 10px;
-  display: block;
-  padding: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background: none;
-}
-
-.btn-pagination:hover {
-  border: 3px solid rgba(42, 43, 141, 1);
-  color: rgba(42, 43, 141, 1);
-  cursor: pointer;
-}

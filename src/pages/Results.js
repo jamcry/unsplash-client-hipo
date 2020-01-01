@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import GridGallery from "../components/GridGallery";
 import StickyHeader from "../components/StickyHeader";
-import "./Results.css";
 import { withRouter } from "react-router-dom";
+import Pagination from "../components/Pagination";
+import "./Results.css";
 
 class Results extends Component {
   state = {
@@ -16,23 +17,20 @@ class Results extends Component {
 
   getResults = () => {
     const UNSPLASH_ACCESS_KEY = process.env.REACT_APP_UNSPLASH_ACCESS_KEY || "";
-    if(!process.env.REACT_APP_UNSPLASH_ACCESS_KEY) console.warn("Couldn't get the API key from environment! Check your configuration.");
+    if (!process.env.REACT_APP_UNSPLASH_ACCESS_KEY) {
+      console.warn("Couldn't get the API key from environment! Check your configuration.");
+    }
     const {query, collection, currentPage} = this.state;
     const url = `https://api.unsplash.com/search/photos?query=${query}&collections=${collection}&client_id=${UNSPLASH_ACCESS_KEY}&page=${currentPage}`;
     fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        isLoading: false,
-        data
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ isLoading: false, data })
       })
-    })
-    .catch(err => {
-      console.log(err);
-      this.setState({
-        error: err
+      .catch(err => {
+        console.log(err);
+        this.setState({ error: err })
       })
-    })
   }
 
   componentDidMount = () => {
@@ -43,12 +41,7 @@ class Results extends Component {
     const {query, collection} = this.props.match.params;
     // Check route parameter for changes
     if(query !== this.state.query || collection !== this.state.collection) {
-      this.setState({
-        isLoading: true,
-        data: null,
-        query,
-        collection
-      }, this.getResults)
+      this.setState({ isLoading: true, data: null, query, collection}, this.getResults)
     }
   }
 
@@ -69,6 +62,7 @@ class Results extends Component {
   render() {
     // Get the search parameters from the router
     const { collection, query } = this.props.match.params;
+
     return (
       <div className="results container">
         <div className="header">
@@ -77,38 +71,20 @@ class Results extends Component {
           <StickyHeader key={query+"_"+collection} />
         </div>
         <div className="content">
-          <h2>Search Results for "{this.state.query}"</h2>
-          <p><b>Collection ID:</b> {collection || "No collection selected"}</p>
-
+          <h2>Search Results for {this.state.query}</h2>
           {this.state.isLoading && <h1>Loading...</h1>}
-
           {this.state.error && <h1>Problem fetching images! ({this.state.error.message})</h1>}
-
           {this.state.data && 
-          <>
-            <GridGallery imageList={this.state.data.results || []} />
-            {
-              (parseInt(this.state.data.total_pages) > 0)
-              ?
-              <p>Page {this.state.currentPage} / {this.state.data.total_pages}</p>
-              :
-              <p>Sorry, no images found for your search!</p>
-            }
-            { 
-              parseInt(this.state.currentPage) > 1
-              &&
-              <button className="btn-pagination" style={{float:"left"}} onClick={this.decrementPageNumber}>
-                <i className="fas fa-chevron-left" /> Prev Page
-              </button>
-            }
-            { 
-              parseInt(this.state.currentPage) < parseInt(this.state.data.total_pages)
-              &&
-              <button className="btn-pagination" style={{float:"right"}} onClick={this.incrementPageNumber}>
-                Next Page <i className="fas fa-chevron-right" />
-              </button>
-            }
-          </>}
+            <>
+              <GridGallery imageList={this.state.data.results || []} />
+              <Pagination
+                totalPages={this.state.data.total_pages}
+                currentPage={this.state.currentPage}
+                decrementPageNumber={this.decrementPageNumber}
+                incrementPageNumber={this.incrementPageNumber}
+              />
+            </>
+          }
         </div>
       </div>
     )
