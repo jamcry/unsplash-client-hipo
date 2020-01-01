@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/unsplash-client-hipo/static/css/main.ccd59d55.chunk.css",
+    "main.js": "/unsplash-client-hipo/static/js/main.7d464baa.chunk.js",
+    "main.js.map": "/unsplash-client-hipo/static/js/main.7d464baa.chunk.js.map",
+    "runtime-main.js": "/unsplash-client-hipo/static/js/runtime-main.5371a7ed.js",
+    "runtime-main.js.map": "/unsplash-client-hipo/static/js/runtime-main.5371a7ed.js.map",
+    "static/js/2.c0742484.chunk.js": "/unsplash-client-hipo/static/js/2.c0742484.chunk.js",
+    "static/js/2.c0742484.chunk.js.map": "/unsplash-client-hipo/static/js/2.c0742484.chunk.js.map",
+    "index.html": "/unsplash-client-hipo/index.html",
+    "precache-manifest.b9be0ef16bdcebc893354a0d0272c3c7.js": "/unsplash-client-hipo/precache-manifest.b9be0ef16bdcebc893354a0d0272c3c7.js",
+    "service-worker.js": "/unsplash-client-hipo/service-worker.js",
+    "static/css/main.ccd59d55.chunk.css.map": "/unsplash-client-hipo/static/css/main.ccd59d55.chunk.css.map",
+    "static/js/2.c0742484.chunk.js.LICENSE": "/unsplash-client-hipo/static/js/2.c0742484.chunk.js.LICENSE",
+    "static/media/logo.ae74bff3.svg": "/unsplash-client-hipo/static/media/logo.ae74bff3.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5371a7ed.js",
+    "static/js/2.c0742484.chunk.js",
+    "static/css/main.ccd59d55.chunk.css",
+    "static/js/main.7d464baa.chunk.js"
+  ]
+}
