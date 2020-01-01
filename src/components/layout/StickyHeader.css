@@ -43,9 +43,19 @@ form, form * {
   .sticky-header-container form {
     flex-wrap: wrap;
   }
-  .sticky-header-container .select-container, .sticky-header-container .input-container, .sticky-header-container button {
-    margin: .5rem 0 !important;
-    height: 40px;
+  .sticky-header-container .select-container, .sticky-header-container .input-container {
+    margin: .2rem 0 !important;
+  }
+  .sticky-header-container {
+    margin: .75rem .75rem .75rem 0;
+  }
+  .sticky-header-container form input, .sticky-header-container form select, .sticky-header-container button {
+    height: auto;
+    padding: .5rem;
+    margin: 0 !important;
+  }
+  .sticky-header-container form .stacked-select {
+    display: none;
   }
   .sticky-header-container svg {
     margin: 0 !important;
@@ -54,7 +64,7 @@ form, form * {
     padding: 1rem;
   }
   .results .content {
-    margin-top: 13rem !important;
+    margin-top: 8rem !important;
   }
 }
 
