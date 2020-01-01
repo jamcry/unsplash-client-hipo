@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./Home.css";
-import SearchForm from "../components/SearchForm";
+import SearchForm from "../components/layout/SearchForm";
 import { ReactComponent as AppLogo } from "../logo.svg";
 
 export default class Home extends Component {

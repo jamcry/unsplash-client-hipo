@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhotoModal from './Modal/PhotoModal'
+import PhotoModal from '../modal/PhotoModal'
 import "./ExpandableImage.css";
 
 export default class ExpandableImage extends Component {
@@ -21,7 +21,6 @@ export default class ExpandableImage extends Component {
     this.unlockScroll();
     this.setState({ expanded: false })
   }
-
 
   render() {
     const src = this.props.imgData.urls.small;

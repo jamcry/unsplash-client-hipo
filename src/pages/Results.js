@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import GridGallery from "../components/GridGallery";
-import StickyHeader from "../components/StickyHeader";
+import GridGallery from "../components/gallery/GridGallery";
+import StickyHeader from "../components/layout/StickyHeader";
 import { withRouter } from "react-router-dom";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/layout/Pagination";
 import "./Results.css";
 
 class Results extends Component {
