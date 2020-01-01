@@ -11,8 +11,7 @@
   background-color: rgba(5, 4, 23, .8);
 }
 
-.modal-container .modal-content,
-.modal-container .modal-content-wrapper {
+.modal-container .modal-content, .modal-container .modal-content-wrapper {
   position: relative;
   padding: .3rem;
   display: flex;
@@ -26,6 +25,7 @@
 }
 
 /* Modal close button for mobile devices */
+
 .mobile-btn-close {
   display: none;
 }

@@ -43,9 +43,7 @@ form, form * {
   .sticky-header-container form {
     flex-wrap: wrap;
   }
-  .sticky-header-container .select-container,
-  .sticky-header-container .input-container,
-  .sticky-header-container button {
+  .sticky-header-container .select-container, .sticky-header-container .input-container, .sticky-header-container button {
     margin: .5rem 0 !important;
     height: 40px;
   }
@@ -53,11 +51,10 @@ form, form * {
     margin: 0 !important;
   }
   .sticky-header-container .logo-container {
-    
     padding: 1rem;
   }
   .results .content {
-    margin-top: 15rem !important;
+    margin-top: 13rem !important;
   }
 }
 
@@ -65,8 +62,7 @@ form, form * {
   margin-right: 86px;
 }
 
-.sticky-header-container .select-container,
-.sticky-header-container .input-container {
+.sticky-header-container .select-container, .sticky-header-container .input-container {
   flex: 1;
   flex-basis: 400px;
 }
